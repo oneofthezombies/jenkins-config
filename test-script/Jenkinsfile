@@ -1,4 +1,2 @@
-import util.node
-
-println findNodesByName(/m/)
-println findNodesByLabel(/Group_A/)
+println JenkinsUtil.findNodesByName(/m/)
+println JenkinsUtil.findNodesByLabel(/Group_A/)
