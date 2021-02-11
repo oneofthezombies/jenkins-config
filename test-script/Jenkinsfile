@@ -1,4 +1,4 @@
-println JenkinsUtil.findNodesByName(/m/)
-println JenkinsUtil.findNodesByLabel(/Group_A/)
+// println JenkinsUtil.findNodesByName(/m/)
+// println JenkinsUtil.findNodesByLabel(/Group_A/)
 
 println System.getProperty("user.dir")
