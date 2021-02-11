@@ -1,18 +1,18 @@
-deff a = jenkins.model.Jenkins.get().computers
-println a
+def nodes = jenkins.model.Jenkins.get().computers
+println nodes
 
-pipeline {
-    agent any
-    stages {
-        stage('test') {
-            steps {
-                sh 'echo test'
-            }
-        }
-        stage('failure') {
-            steps {
-                sh 'echo success'
-            }
-        }
-    }
-}
+// pipeline {
+//     agent any
+//     stages {
+//         stage('test') {
+//             steps {
+//                 sh 'echo test'
+//             }
+//         }
+//         stage('failure') {
+//             steps {
+//                 sh 'echo success'
+//             }
+//         }
+//     }
+// }
