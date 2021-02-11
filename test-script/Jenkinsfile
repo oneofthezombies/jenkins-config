@@ -1,18 +1,14 @@
-def nodes = jenkins.model.Jenkins.get().computers
-println nodes
+String[] findNodesByName(String pattern) {
+  return jenkins.model.Jenkins.get().computers
+    .findAll { it.node.selfLabel =~ pattern }
+    .collect { it.node.selfLabel.name }
+}
 
-// pipeline {
-//     agent any
-//     stages {
-//         stage('test') {
-//             steps {
-//                 sh 'echo test'
-//             }
-//         }
-//         stage('failure') {
-//             steps {
-//                 sh 'echo success'
-//             }
-//         }
-//     }
-// }
+String[] findNodesByLabel(String pattern) {
+  return jenkins.model.Jenkins.get().computers
+    .findAll { it.node.labelString =~ pattern }
+    .collect { it.node.selfLabel.name }
+}
+
+println findNodesByName(/m/)
+println findNodesByLabel(/Group_A/)
