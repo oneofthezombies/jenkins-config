@@ -1,0 +1,18 @@
+deff a = jenkins.model.Jenkins.get().computers
+println a
+
+pipeline {
+    agent any
+    stages {
+        stage('test') {
+            steps {
+                sh 'echo test'
+            }
+        }
+        stage('failure') {
+            steps {
+                sh 'echo success'
+            }
+        }
+    }
+}
