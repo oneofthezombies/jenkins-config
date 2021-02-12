@@ -1,4 +1,14 @@
-// println JenkinsUtil.findNodesByName(/m/)
-// println JenkinsUtil.findNodesByLabel(/Group_A/)
-
-println findFiles(glob: '*.*')
+pipeline {
+  agent { label 'master' }
+  stages {
+    stage('test') {
+      steps {
+        script {
+          def files = findFiles glob: '*'
+          println files
+        }
+        sh 'echo test'
+      }
+    }
+  }
+}
