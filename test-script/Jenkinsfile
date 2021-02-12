@@ -1,14 +1,17 @@
 pipeline {
-  script {
-    def nodes = nodesByLabel 'Group_A'
-    println nodes
-  }
-  agent { label nodes[0] }
   stages {
     stage('test') {
+      stages {
+        stage('choose node') {
+          agent { label 'master' }
+          script {
+            def nodes = nodesByLabel 'Group_A'
+            println nodes
+          }
+        }
+      }
       steps {
-        
-        sh 'echo test'
+        sh 'hello'
       }
     }
   }
